@@ -120,6 +120,79 @@ ulLinks.forEach(link => {
     }
 });
 
+let mode = document.querySelectorAll(".mode");
+let iMode = document.querySelectorAll(".mode i");
+let pMode = document.querySelectorAll(".mode p");
+let ul = document.querySelectorAll(".desktop-view ul li a");
+let getMode = localStorage.getItem("mode");
+
+if (getMode == "dark") {
+    document.body.classList.add("dark")
+    iMode.forEach (i => {
+        i.style.left = "64%"
+    })
+    pMode.forEach(p => {
+        p.style.right = "39.5%"
+        p.innerHTML = "light"
+    })
+    ul.forEach(link => {
+        link.style.fontWeight = "600"
+    })
+} 
+mode.forEach(mo => {
+    mo.onclick = () => {
+        document.body.classList.toggle("dark")
+        if (document.body.classList.contains("dark")) {
+            iMode.forEach (i => {
+                i.style.left = "64%"
+            })
+            pMode.forEach(p => {
+                p.style.right = "39.5%"
+                p.innerHTML = "light"
+            })
+            ul.forEach(link => {
+                link.style.fontWeight = "600"
+            })
+            localStorage.setItem("mode","dark");
+        
+        } else {
+            iMode.forEach (i => {
+                i.style.left = "0px"
+            })
+            pMode.forEach(p => {
+                p.style.right = "4px"
+                p.innerHTML = "dark"
+            })
+            ul.forEach(link => {
+                link.style.fontWeight = "400"
+            })
+            localStorage.setItem("mode","light");
+        }
+    }
+});
+
+if (!document.body.classList.contains("dark")) {
+    localStorage.setItem("mode","light");
+} else {
+    localStorage.setItem("mode","dark");
+}
+
+
+
+
+// mode.onclick = () => {
+//     document.body.classList.toggle("dark")
+//     if (document.body.classList.contains("dark")) {
+//         iMode.style.left = "45px"
+//         pMode.style.right = "28px"
+//         pMode.innerHTML = "light"
+//     } else {
+//         iMode.style.left = "0px"
+//         pMode.style.right = "4px"
+//         pMode.innerHTML = "dark"
+//     }
+// }
+
 // window.onclick = e => {
 //     if (listLinks.classList.contains("height")) {
 //         if (!list.contains(e.target) && !listLinks.contains(e.targer)) {
