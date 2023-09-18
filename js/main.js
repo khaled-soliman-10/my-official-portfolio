@@ -1,14 +1,7 @@
 let header = document.querySelector("header");
 let links = document.querySelectorAll("header ul li a");
-// let home1 = document.querySelector(".home")
-// window.onscroll = () => {
-    //     if (window.scrollY >= home1.offsetTop) {
-        //         links[0].classList.remove("active")
-        //     }
-        // }
-        // console.log(links)
         
-        ScrollReveal({
+ScrollReveal({
     reset: true,
     distance: '60px',
     duration: 2000,
@@ -105,10 +98,8 @@ let ulLinks = document.querySelectorAll(".mobile-view .mobile ul li a");
 list.addEventListener("click",()=> {
     listLinks.classList.toggle("height");
     if (!listLinks.classList.contains("height")) {
-        // listLinks.style.display = "none"
         list.innerHTML = listMark
     }else {
-        // listLinks.style.display = "flex"
         list.innerHTML = xMark
     }
 })
@@ -122,18 +113,16 @@ ulLinks.forEach(link => {
 
 let mode = document.querySelectorAll(".mode");
 let iMode = document.querySelectorAll(".mode i");
-let pMode = document.querySelectorAll(".mode p");
+let sun = `<i class="fa-solid fa-sun"></i>`;
+let moon = `<i class="fa-solid fa-moon"></i>`;
 let ul = document.querySelectorAll(".desktop-view ul li a");
 let getMode = localStorage.getItem("mode");
 
 if (getMode == "dark") {
     document.body.classList.add("dark")
     iMode.forEach (i => {
-        i.style.left = "64%"
-    })
-    pMode.forEach(p => {
-        p.style.right = "39.5%"
-        p.innerHTML = "light"
+        i.classList.replace("fa-cloud-sun","fa-cloud-moon")
+        i.style.transform = "rotate(360deg)"
     })
     ul.forEach(link => {
         link.style.fontWeight = "600"
@@ -144,11 +133,8 @@ mode.forEach(mo => {
         document.body.classList.toggle("dark")
         if (document.body.classList.contains("dark")) {
             iMode.forEach (i => {
-                i.style.left = "64%"
-            })
-            pMode.forEach(p => {
-                p.style.right = "39.5%"
-                p.innerHTML = "light"
+                i.classList.replace("fa-cloud-sun","fa-cloud-moon")
+                i.style.transform = "rotate(360deg)"
             })
             ul.forEach(link => {
                 link.style.fontWeight = "600"
@@ -157,11 +143,8 @@ mode.forEach(mo => {
         
         } else {
             iMode.forEach (i => {
-                i.style.left = "0px"
-            })
-            pMode.forEach(p => {
-                p.style.right = "4px"
-                p.innerHTML = "dark"
+                i.classList.replace("fa-cloud-moon","fa-cloud-sun")
+                i.style.transform = "rotate(-360deg)"
             })
             ul.forEach(link => {
                 link.style.fontWeight = "400"
@@ -177,21 +160,6 @@ if (!document.body.classList.contains("dark")) {
     localStorage.setItem("mode","dark");
 }
 
-
-
-
-// mode.onclick = () => {
-//     document.body.classList.toggle("dark")
-//     if (document.body.classList.contains("dark")) {
-//         iMode.style.left = "45px"
-//         pMode.style.right = "28px"
-//         pMode.innerHTML = "light"
-//     } else {
-//         iMode.style.left = "0px"
-//         pMode.style.right = "4px"
-//         pMode.innerHTML = "dark"
-//     }
-// }
 
 // window.onclick = e => {
 //     if (listLinks.classList.contains("height")) {

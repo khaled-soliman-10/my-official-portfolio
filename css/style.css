@@ -27,47 +27,22 @@
 }
 
 .mode {
-    /* position: absolute;
-    left: 100px;
-    top: 50%;
-    transform: translate(-50%,-50%); */
     outline: none;
     border: none;
-    width: 70px;
-    height: 24px;
     border-radius: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--main-color);
+    background-color: transparent;
     cursor: pointer;
     position: relative;
 }
 
 .mode i {
-    position: absolute;
-    left: 0;
-    top: 0;
-    font-size: 24.8px;
+    font-size: 20px;
     color: var(--white-color);
-    transition: .3s;
+    transition: .5s;
 }
-.mode p {
-    font-size: 17px;position: absolute;
-    right: 4px;
-    font-family: var(--main-font);
-    text-transform: capitalize;
-    font-weight: 600;
-    transition: .3s;
-    color: var(--big-color);
-}
-/* .mode:hover i {
-    left: 40px;
-    color: #272e3b;
-}
-.mode:hover p {
-    right: 27px;
-} */
 
 .container {
     max-width: 1000px;
@@ -127,6 +102,11 @@ header .desktop-view {
     font-family: var(--main-font);
     font-size: 30px;
     text-transform: capitalize;
+}
+
+.desktop-view ul {
+    display: flex;
+    align-items: center;
 }
 
 .desktop-view ul li {
@@ -651,19 +631,8 @@ footer form input[type='submit'] {
     .mobile-view .logo {
         font-size: 25px !important;
     }
-    .mobile-view .mobile {
-        gap: 5px !important;
-    }
-    .mode {
-        width: 50px;
-        height: 17.3px;
-    }
     .mode i {
-        font-size: 18px;
-    }
-    .mode p {
-        font-size: 12px;
-        font-weight: bold;
+        font-size: 17px;
     }
     .home {
         padding: 80px 20px;
@@ -798,7 +767,7 @@ header .mobile-view {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 5px;
 }
 
 .mobile-view .mobile ul {
